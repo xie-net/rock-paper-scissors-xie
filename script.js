@@ -20,15 +20,19 @@ function getHumanChoice () {
 }
 
 
-
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    let roundCount = 0;
+
+    
 
     function playRound(humanChoice, computerChoice) {
         const lowerHumanChoice = humanChoice.toLowerCase();
 
+        if (roundCount === 5) {
+        return;
+        }
         switch (lowerHumanChoice) {
             case "rock":
                 if (computerChoice === "paper") {
@@ -68,8 +72,22 @@ function playGame() {
         
         }
 
+    displayMessage(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
+    roundCount += 1;
+
+    if (roundCount === 5) {
+        if (roundCount === 5) {
+    if (humanScore > computerScore) {
+        displayMessage("You win! Congrats!");
+    } else if (humanScore < computerScore) {
+        displayMessage("You lost! Oh no :(");
+    } else {
+        displayMessage("It's a tie!!!");
     }
-;
+}
+    };
+    }
+
     const rockButton = document.querySelector("#rock");
     const paperButton = document.querySelector("#paper");
     const scissorsButton = document.querySelector("#scissors");
