@@ -69,32 +69,21 @@ function playGame() {
         }
 
     }
+;
+    const rockButton = document.querySelector("#rock");
+    const paperButton = document.querySelector("#paper");
+    const scissorsButton = document.querySelector("#scissors");
 
-    let answer = prompt('Would you like to play rock paper scissors? Y or N','');
-    answer = answer.toLowerCase();
 
-    if (answer === 'y') {
-        for (let i = 1; i <= 5; i++) {
-            displayMessage(`Round ${i}! Fight!`);
-            let humanSelection = getHumanChoice();
-            let computerSelection = getComputerChoice();
-          
-            playRound(humanSelection, computerSelection);
-       
-             displayMessage(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
-        }
-
-        if (humanScore > computerScore) {
-            displayMessage("You win! Congrats!");
-        } else if (humanScore < computerScore) {
-            displayMessage("You lost! Oh no :(");
-        } else {
-            displayMessage("It's a tie!!!");
-        }
-
-    } else {
-        displayMessage("Are you sure?");
-    }
+    rockButton.addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+    });
+    paperButton.addEventListener("click", () => {
+        playRound("paper", getComputerChoice());
+    });
+    scissorsButton.addEventListener("click", () => {
+        playRound("scissors", getComputerChoice());
+    });
 
 }
 
